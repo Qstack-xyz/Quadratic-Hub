@@ -3,7 +3,7 @@
  --
 # Quadratic Funding and Voting Hub **SHELL**
 
-An authoritative guide on the principles, implementation, and applications of Quadratic Funding and Voting.
+An guide on the principles, implementation, and applications of Quadratic Funding and Voting.
 
 ## Introduction
 
