@@ -1,1 +1,1 @@
-# Quadratic-Canon
+# Quadratic-Hub
