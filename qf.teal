@@ -1,0 +1,75 @@
+// Quadratic Funding Smart Contract
+teal
+// Register a contributor
+algo_method txfn
+int 1
+txn Sender
+arg_0
+byte "registerContributor"
+==
+assert
+// Contribute to project
+algo_method txfn
+int 1
+txn Sender
+arg_1
+int projectID
+==0
+assert
+int 1
+txn Sender
+arg_2
+int contributionAmount
+==
+assert
+// Calculate the matching funds
+int contributionAmount
+contributionAmount
+*
+int totalContributionAmount
+/
+// Add the matching funds to the project
+int matchingFunds
+store 1
+// Add the contribution amount to the project
+int contributionAmount
+add
+// Store the updated project balance
+store 2
+// Withdraw from a project
+algo_method txfn
+int 1
+txn Sender
+arg_1
+int projectID
+==
+assert
+int 1
+txn Sender
+arg_2
+int withdrawAmount
+==
+assert
+// Get the project balance
+int projectID
+load 1
+int balance
+load 2
+// Check if the withdraw amount is less than or equal to the project balance
+assert
+withdrawAmount
+balance
+<=
+// Subtract the withdraw amount from the project balance
+int balance
+withdrawAmount
+-
+store 2
+// Pay the withdraw amount to the sender
+txna Sender
+withdrawAmount
+Payment
+// Return the remaining balance to the project
+int balance
+txna Sender
+Payment
